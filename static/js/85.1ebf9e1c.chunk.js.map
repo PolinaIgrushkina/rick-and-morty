@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/85.1ebf9e1c.chunk.js","mappings":"mLAEe,SAASA,IACtB,OAAO,uCACR,C","sources":["pages/Characters/Characters.jsx"],"sourcesContent":["import React from 'react';\n\nexport default function Characters() {\n  return <div>Characters</div>;\n}\n"],"names":["Characters"],"sourceRoot":""}

@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/674.76bdb938.chunk.js","mappings":"qLAEe,SAASA,IACtB,OAAO,iDACR,C","sources":["pages/CharacterDetailsPage/CharacterDetailsPage.jsx"],"sourcesContent":["import React from 'react';\n\nexport default function CharacterDetailsPage() {\n  return <div>CharacterDetailsPage</div>;\n}\n"],"names":["CharacterDetailsPage"],"sourceRoot":""}
