@@ -1,16 +1,20 @@
-export const App = () => {
+import React from 'react';
+import { lazy, Suspense } from 'react';
+import { Routes, Route } from 'react-router-dom';
+
+const CharacterDetails = lazy(() =>
+  import('pages/CharacterDetails/CharacterDetails')
+);
+const Characters = lazy(() => import('pages/Characters/Characters'));
+
+export default function App() {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+    <Suspense fallback={<p>Loading...</p>}>
+      <Routes>
+        <Route path="/characters" element={<Characters />} />
+        <Route path="/characters/:characterId" element={<CharacterDetails />} />
+        <Route path="*" element={<Characters />} />
+      </Routes>
+    </Suspense>
   );
-};
+}
