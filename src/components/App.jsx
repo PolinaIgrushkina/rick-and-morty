@@ -14,10 +14,7 @@ export default function App() {
     <Suspense fallback={<p>Loading...</p>}>
       <Routes>
         <Route path="/characters" element={<CharactersPage />} />
-        <Route
-          path="/characters/:characterId"
-          element={<CharacterDetailsPage />}
-        />
+        <Route path="/characters/:id" element={<CharacterDetailsPage />} />
         <Route path="*" element={<CharactersPage />} />
       </Routes>
     </Suspense>

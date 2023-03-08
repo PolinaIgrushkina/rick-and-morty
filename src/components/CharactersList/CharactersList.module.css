@@ -14,6 +14,7 @@
 .buttonscontainer {
   display: flex;
   flex-direction: row;
+  align-items: baseline;
 }
 
 .button {
@@ -40,4 +41,35 @@
 .button:hover,
 .button:focus {
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2), 0px 3px 4px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.14);
+}
+
+.disabled {
+ display: block;
+  height: 50px;
+  width: 200px;
+
+  max-width: 208px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  letter-spacing: 0.15px;
+  color: #585958e1;
+
+  padding: 4px;
+  border: 1px solid #585958e1;
+  border-radius: 4px;
+  margin: 0 auto;
+  background-color: rgba(190, 198, 197, 0.12);
+}
+
+.pageTitle {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  letter-spacing: 0.15px;
+  color: #0a99e0;
 }

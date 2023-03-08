@@ -52,11 +52,21 @@ export default function CharactersList({ searchCharacters }) {
           />
         ))}
       </ul>
+
       <div className={css.buttonscontainer}>
-        <button className={css.button} onClick={handlePrev}>
+        <button
+          disabled={page <= 1}
+          className={page <= 1 ? css.disabled : css.button}
+          onClick={handlePrev}
+        >
           Prev Page
         </button>
-        <button className={css.button} onClick={handleNext}>
+        <p className={css.pageTitle}>Page {page}</p>
+        <button
+          className={page >= 42 ? css.disabled : css.button}
+          onClick={handleNext}
+          disabled={page >= 42}
+        >
           Next Page
         </button>
       </div>
