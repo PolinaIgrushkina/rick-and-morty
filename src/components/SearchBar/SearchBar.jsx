@@ -1,36 +1,25 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
+import { useSearchParams } from 'react-router-dom';
 
 import css from './Searchbar.module.css';
 
-export default function SearchBar({ onSubmit }) {
-  const [searchName, setSearchName] = useState('');
+export default function SearchBar() {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const name = searchParams.get('name') ?? '';
 
-  const handleChange = event => {
-    setSearchName(event.currentTarget.value.toLowerCase());
-  };
-
-  const handleSubmit = event => {
-    event.preventDefault();
-
-    if (searchName.trim() === '') {
-      alert('Please enter name.');
-      return;
-    }
-
-    onSubmit(searchName);
-    setSearchName('');
+  const handleChange = e => {
+    setSearchParams({ name: e.target.value.toLowerCase() });
   };
 
   return (
-    <form className={css.form} onSubmit={handleSubmit}>
+    <form className={css.form}>
       <input
         className={css.input}
         type="text"
         autoComplete="off"
         autoFocus
         placeholder="Filter by name..."
-        value={searchName}
+        value={name}
         onChange={handleChange}
       />
 
@@ -51,7 +40,3 @@ export default function SearchBar({ onSubmit }) {
     </form>
   );
 }
-
-SearchBar.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-};

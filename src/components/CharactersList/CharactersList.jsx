@@ -1,44 +1,40 @@
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
+import { useSearchParams } from 'react-router-dom';
 
-import { fetchAllCharacters } from 'helpers/API';
+import { fetchCharacters } from 'helpers/API';
 import ChacartersItem from 'components/ChacartersItem/ChacartersItem';
-
 import css from './CharactersList.module.css';
 
-export default function CharactersList({ searchCharacters }) {
+export default function CharactersList() {
   const [characters, setCharacters] = useState([]);
-  const [page, setPage] = useState(1);
+  const [pages, setPages] = useState(0);
+
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const page = searchParams.get('page') ?? 1;
+  const name = searchParams.get('name') ?? '';
 
   useEffect(() => {
     async function getAllCharacters() {
-      const res = await fetchAllCharacters(page, searchCharacters);
-      setCharacters(res);
+      const res = await fetchCharacters(page, name);
+      setCharacters(res.results);
+      setPages(res.info.pages);
     }
     getAllCharacters();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [page]);
+  }, [page, name]);
 
-  useEffect(() => {
-    async function getSearchCharacters() {
-      const res = await fetchAllCharacters(1, searchCharacters);
-      setCharacters(res);
-    }
-    getSearchCharacters();
-  }, [searchCharacters]);
-
-  const inAlphabeticalOrder = characters.sort(
+  const inAlphabeticalOrder = characters?.sort(
     (firstCharacter, secondCharacter) =>
       firstCharacter.name.localeCompare(secondCharacter.name)
   );
 
-  const handleNext = () => {
-    setPage(page + 1);
+  const handleChangePage = newPage => {
+    setSearchParams({
+      name,
+      page: newPage,
+    });
   };
 
-  const handlePrev = () => {
-    setPage(page - 1);
-  };
   return (
     <>
       <ul className={css.list}>
@@ -55,17 +51,17 @@ export default function CharactersList({ searchCharacters }) {
 
       <div className={css.buttonscontainer}>
         <button
-          disabled={page <= 1}
-          className={page <= 1 ? css.disabled : css.button}
-          onClick={handlePrev}
+          disabled={Number(page) === 1}
+          className={Number(page) === 1 ? css.disabled : css.button}
+          onClick={() => handleChangePage(Number(page) - 1)}
         >
           Prev Page
         </button>
         <p className={css.pageTitle}>Page {page}</p>
         <button
-          className={page >= 42 ? css.disabled : css.button}
-          onClick={handleNext}
-          disabled={page >= 42}
+          className={Number(page) === pages ? css.disabled : css.button}
+          onClick={() => handleChangePage(Number(page) + 1)}
+          disabled={Number(page) === pages}
         >
           Next Page
         </button>
@@ -73,7 +69,3 @@ export default function CharactersList({ searchCharacters }) {
     </>
   );
 }
-
-CharactersList.propTypes = {
-  searchCharacters: PropTypes.string.isRequired,
-};
