@@ -20,8 +20,8 @@ export default function CharacterDetailsPage() {
   }, [id]);
 
   return (
-    <>
-      <Link to={backLinkHref}>
+    <div className={css.page}>
+      <Link to={backLinkHref} className={css.goBack}>
         <svg
           width="24"
           height="24"
@@ -37,7 +37,7 @@ export default function CharacterDetailsPage() {
         Go back
       </Link>
 
-      <div className={css.card}>
+      <div>
         <img src={character?.image} alt="Character" className={css.image} />
         <h1 className={css.name}>{character?.name}</h1>
 
@@ -55,7 +55,7 @@ export default function CharacterDetailsPage() {
 
         <div className={css.block}>
           <p className={css.attribute}>Specie</p>
-          <p className={css.value}>{character?.specie}</p>
+          <p className={css.value}>{character?.species}</p>
         </div>
 
         <div className={css.block}>
@@ -68,6 +68,6 @@ export default function CharacterDetailsPage() {
           <p className={css.value}>{character?.type || ' Unknown'} </p>
         </div>
       </div>
-    </>
+    </div>
   );
 }

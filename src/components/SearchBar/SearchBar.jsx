@@ -22,7 +22,6 @@ export default function SearchBar() {
         value={name}
         onChange={handleChange}
       />
-
       <svg
         className={css.svg}
         width="24"

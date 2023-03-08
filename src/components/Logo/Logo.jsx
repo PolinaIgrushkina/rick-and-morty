@@ -12,7 +12,7 @@ export default function Logo() {
       <picture>
         <source
           srcSet={`${logoComp1} 1x, ${logoComp2} 2x`}
-          media="(min-width: 1280px)"
+          media="(min-width: 768px)"
         />
         <source
           srcSet={`${logoMob1} 1x, ${logoMob2} 2x`}

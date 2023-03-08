@@ -1,4 +1,12 @@
 .page {
-  padding: 86px 210px;
+  padding-top: 92px;
+  padding-left: 24px;
+  padding-right: 24px;
+  background-color: E5E5E5;
 }
 
+@media screen and (min-width: 768px) {
+ .page {
+    padding-top: 86px;
+  }
+}
