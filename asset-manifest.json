@@ -1,27 +1,29 @@
 {
   "files": {
     "main.css": "/rick-and-morty/static/css/main.aef16ba6.css",
-    "main.js": "/rick-and-morty/static/js/main.c02e2f90.js",
+    "main.js": "/rick-and-morty/static/js/main.14c042d6.js",
     "static/css/695.36a393a4.chunk.css": "/rick-and-morty/static/css/695.36a393a4.chunk.css",
     "static/js/695.96e7b6f0.chunk.js": "/rick-and-morty/static/js/695.96e7b6f0.chunk.js",
-    "static/css/171.977c5b75.chunk.css": "/rick-and-morty/static/css/171.977c5b75.chunk.css",
-    "static/js/171.e9241f4e.chunk.js": "/rick-and-morty/static/js/171.e9241f4e.chunk.js",
+    "static/css/422.fa2e6880.chunk.css": "/rick-and-morty/static/css/422.fa2e6880.chunk.css",
+    "static/js/422.5b48cad7.chunk.js": "/rick-and-morty/static/js/422.5b48cad7.chunk.js",
     "static/js/279.111337a3.chunk.js": "/rick-and-morty/static/js/279.111337a3.chunk.js",
+    "static/js/643.ae232813.chunk.js": "/rick-and-morty/static/js/643.ae232813.chunk.js",
     "static/media/desktop-2x.png": "/rick-and-morty/static/media/desktop-2x.33f1662b1fd59e892152.png",
     "static/media/mobile-2x.png": "/rick-and-morty/static/media/mobile-2x.8456ee62da78e6a7379a.png",
     "static/media/desktop-1x.png": "/rick-and-morty/static/media/desktop-1x.fdb72745f596ac4a045d.png",
     "static/media/mobile-1x.png": "/rick-and-morty/static/media/mobile-1x.5375322a8761d24d7b70.png",
     "index.html": "/rick-and-morty/index.html",
     "main.aef16ba6.css.map": "/rick-and-morty/static/css/main.aef16ba6.css.map",
-    "main.c02e2f90.js.map": "/rick-and-morty/static/js/main.c02e2f90.js.map",
+    "main.14c042d6.js.map": "/rick-and-morty/static/js/main.14c042d6.js.map",
     "695.36a393a4.chunk.css.map": "/rick-and-morty/static/css/695.36a393a4.chunk.css.map",
     "695.96e7b6f0.chunk.js.map": "/rick-and-morty/static/js/695.96e7b6f0.chunk.js.map",
-    "171.977c5b75.chunk.css.map": "/rick-and-morty/static/css/171.977c5b75.chunk.css.map",
-    "171.e9241f4e.chunk.js.map": "/rick-and-morty/static/js/171.e9241f4e.chunk.js.map",
-    "279.111337a3.chunk.js.map": "/rick-and-morty/static/js/279.111337a3.chunk.js.map"
+    "422.fa2e6880.chunk.css.map": "/rick-and-morty/static/css/422.fa2e6880.chunk.css.map",
+    "422.5b48cad7.chunk.js.map": "/rick-and-morty/static/js/422.5b48cad7.chunk.js.map",
+    "279.111337a3.chunk.js.map": "/rick-and-morty/static/js/279.111337a3.chunk.js.map",
+    "643.ae232813.chunk.js.map": "/rick-and-morty/static/js/643.ae232813.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.aef16ba6.css",
-    "static/js/main.c02e2f90.js"
+    "static/js/main.14c042d6.js"
   ]
 }
