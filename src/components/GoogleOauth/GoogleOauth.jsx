@@ -6,20 +6,24 @@ import css from './GoogleOauth.module.css';
 export default function GoogleOauth() {
   const [user, setUser] = useState(null);
   const [userData, setUserData] = useState([]);
+  const token = localStorage.getItem('token');
 
   const login = useGoogleLogin({
-    onSuccess: codeResponse => setUser(codeResponse),
+    onSuccess: codeResponse => {
+      setUser(codeResponse);
+      localStorage.setItem('token', codeResponse.access_token);
+    },
     onError: error => console.log('Login Failed:', error),
   });
 
   useEffect(() => {
-    if (user) {
+    if (token) {
       axios
         .get(
-          `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`,
+          `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${token}`,
           {
             headers: {
-              Authorization: `Bearer ${user.access_token}`,
+              Authorization: `Bearer ${token}`,
               Accept: 'application/json',
             },
           }
@@ -29,17 +33,18 @@ export default function GoogleOauth() {
         })
         .catch(err => console.log(err));
     }
-  }, [user]);
+  }, [token, user]);
 
   const logOut = () => {
     googleLogout();
     setUserData(null);
     setUser(null);
+    localStorage.removeItem('token');
   };
 
   return (
     <div className={css.div}>
-      {user ? (
+      {token ? (
         <div>
           <p className={css.email}>{userData?.email}</p>
           <button onClick={logOut} className={css.button}>
