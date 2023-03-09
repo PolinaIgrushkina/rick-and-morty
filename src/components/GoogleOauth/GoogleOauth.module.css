@@ -1,20 +1,19 @@
 .div {
   position: absolute;
-  top: 21px;
-  right: 50px;
+  top: 23px;
+  right: 32px;
 }
 
 .button {
   display: block;
-  height: 50px;
-  width: 200px;
+  height: 30px;
+  width: 170px;
 
-  max-width: 208px;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
-  font-size: 20px;
-  line-height: 30px;
+  font-size: 16px;
+  line-height: 18px;
   letter-spacing: 0.15px;
   color: #32c625;
 
@@ -40,4 +39,21 @@
   line-height: 30px;
   letter-spacing: 0.15px;
   color: #32c625;
+}
+
+@media screen and (min-width: 768px) {
+  .div {
+    top: 21px;
+    right: 50px;
+    }
+  .button {
+  display: block;
+  height: 50px;
+  width: 200px;
+
+  max-width: 208px;
+  
+  font-size: 20px;
+  line-height: 30px;
+}
 }
