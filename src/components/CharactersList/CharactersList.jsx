@@ -21,6 +21,11 @@ export default function CharactersList() {
     try {
       async function getAllCharacters() {
         const res = await fetchCharacters(page, name);
+
+        if (res === undefined) {
+          setStatus('error');
+        }
+
         setCharacters(res.results);
         setPages(res.info.pages);
         setStatus('success');
@@ -80,7 +85,9 @@ export default function CharactersList() {
         </>
       )}
       {status === 'loading' && <Loader />}
-      {status === 'error' && <p>Error! Something went wrong.</p>}
+      {status === 'error' && (
+        <p className={css.error}>Error! Something went wrong.</p>
+      )}
     </>
   );
 }
