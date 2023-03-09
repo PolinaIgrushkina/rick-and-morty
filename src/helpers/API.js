@@ -5,13 +5,19 @@ const api = axios.create({
 });
 
 export const fetchCharacters = async (page = 1, name = '') => {
-  const response = await api.get('/character', {
-    params: {
-      page,
-      name,
-    },
-  });
-  return response.data;
+  try {
+    const response = await api.get('/character', {
+      params: {
+        page,
+        name,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    if (error.response.status === 404) {
+      return alert('There are no characters with this name.');
+    }
+  }
 };
 
 export const fetchCharacterDetails = async character_id => {

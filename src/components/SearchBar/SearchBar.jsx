@@ -11,8 +11,12 @@ export default function SearchBar() {
     setSearchParams({ name: e.target.value.toLowerCase() });
   };
 
+  const handleSubmit = e => {
+    e.preventDefault();
+  };
+
   return (
-    <form className={css.form}>
+    <form className={css.form} onSubmit={handleSubmit}>
       <input
         className={css.input}
         type="text"

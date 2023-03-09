@@ -28,7 +28,6 @@ export default function CharactersList() {
       getAllCharacters();
     } catch (error) {
       setStatus('error');
-      console.log(error);
     }
   }, [page, name]);
 
@@ -81,7 +80,7 @@ export default function CharactersList() {
         </>
       )}
       {status === 'loading' && <Loader />}
-      {status === 'error' && <p>Error! Попробуйте найти что-то другое.</p>}
+      {status === 'error' && <p>Error! Something went wrong.</p>}
     </>
   );
 }
