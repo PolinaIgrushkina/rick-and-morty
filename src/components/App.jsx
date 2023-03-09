@@ -1,6 +1,8 @@
 import React from 'react';
 import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import GoogleOauth from './GoogleOauth/GoogleOauth';
+import Loader from './Loader/Loader';
 
 const CharacterDetailsPage = lazy(() =>
   import('pages/CharacterDetailsPage/CharacterDetailsPage')
@@ -11,7 +13,9 @@ const CharactersPage = lazy(() =>
 
 export default function App() {
   return (
-    <Suspense fallback={<p>Loading...</p>}>
+    <Suspense fallback={<Loader />}>
+      <GoogleOauth />
+
       <Routes>
         <Route path="/characters" element={<CharactersPage />} />
         <Route path="/characters/:id" element={<CharacterDetailsPage />} />
